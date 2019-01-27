@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+      "outDir": "./dist/",
+      "moduleResolution": "node",
+      "sourceMap": true,
+      "module": "esnext",
+      "target": "esnext",
+      "jsx": "react",
+      "esModuleInterop": true,
+      "strict": true,
+      "baseUrl": "./src",
+      "paths": {
+        "xp-common/*": ["common/*"],
+        "xp-resources/*": ["resources/*"]
+      },
+      "lib": ["es2017", "es2018", "dom"]
+    },
+    "include": ["./src/**/*", "types/*"]
+  }

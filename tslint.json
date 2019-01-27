@@ -1,0 +1,38 @@
+{
+    "extends": [
+      "tslint-config-airbnb",
+      "tslint-config-prettier",
+      "tslint-plugin-prettier"
+    ],
+    "include": [
+      "src/**/*.ts*"
+    ],
+    "rules": {
+      "prettier": [
+        true,
+        ".prettierrc.yml"
+      ],
+      "variable-name": [
+        true,
+        "check-format",
+        "allow-leading-underscore",
+        "allow-pascal-case"
+      ],
+      "import-name": [
+        true,
+        {
+          "styledComponents": "styled",
+          "reduxSaga": "createSagaMiddleware"
+        }
+      ],
+      "no-magic-numbers": [
+        true,
+        0,
+        1,
+        2
+      ],
+      "no-console": {
+        "severity": "warning"
+      }
+    }
+  }
