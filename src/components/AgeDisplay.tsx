@@ -27,7 +27,7 @@ class AgeDisplay extends React.Component {
       <TimeItem>
         <TimeName>Current Age</TimeName>
         <TimeQuantity>
-          <ProgressBar ref={this.progress} width={50}>
+          <ProgressBar ref={this.progress}>
             <span ref={this.age}>0</span>y
           </ProgressBar>
         </TimeQuantity>

@@ -1,7 +1,8 @@
 import { listeners } from 'cluster';
+import { Dispatch } from 'redux';
 
-const startTickTime = 2000;
-const minimumTick = 500;
+const startTickTime = 1000;
+const minimumTick = 250;
 const maxYears = 80;
 const startAge = 20;
 
@@ -20,11 +21,15 @@ class GameState {
 
   private listeners: GameStateListener[] = [];
 
-  public tick() {
+  public tick(maintCallback: () => void) {
     this.days += 1;
     this.daysUntilDecrease -= 1;
     if (this.daysUntilDecrease <= 0) {
       this.tickTime = Math.max(minimumTick, this.tickTime - decreaseAmount);
+    }
+
+    if (this.days % 7 === 0) {
+      maintCallback();
     }
 
     if (this.days % year === 0) {

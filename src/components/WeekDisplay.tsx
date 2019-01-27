@@ -30,7 +30,7 @@ class WeekDisplay extends React.Component {
       <TimeItem>
         <TimeName>Current Week</TimeName>
         <TimeQuantity>
-          <ProgressBar ref={this.progress} width={50}>
+          <ProgressBar ref={this.progress}>
             <span ref={this.week}>0</span>
           </ProgressBar>
         </TimeQuantity>

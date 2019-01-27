@@ -2,7 +2,6 @@ import * as React from 'react';
 
 interface Props {
   children: React.ReactNode;
-  width: number;
 }
 
 class ProgressBar extends React.Component<Props> {
@@ -19,11 +18,10 @@ class ProgressBar extends React.Component<Props> {
   }
 
   render() {
-    const { width, children } = this.props;
+    const { children } = this.props;
     return (
       <div
         style={{
-          width: `${width}px`,
           position: 'relative',
           display: 'flex',
           justifyContent: 'center',
