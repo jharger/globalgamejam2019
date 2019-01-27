@@ -25,12 +25,6 @@
           "reduxSaga": "createSagaMiddleware"
         }
       ],
-      "no-magic-numbers": [
-        true,
-        0,
-        1,
-        2
-      ],
       "no-console": {
         "severity": "warning"
       }

@@ -1,7 +1,5 @@
 import { gameReducer, GameState } from './gameState/gameReducer';
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
-import createSagaMiddleware from 'redux-saga';
-import { all } from '@redux-saga/core/effects';
 
 const rootReducer = combineReducers({
   game: gameReducer,
@@ -11,12 +9,7 @@ export interface RootState {
   game: GameState;
 }
 
-function* rootSaga() {
-  yield all([]);
-}
-
-const sagaMiddleware = createSagaMiddleware();
-const middleware: any = [sagaMiddleware];
+const middleware: any = [];
 
 // Necessary if we want to use Redux Devtools
 const composeEnhancers =
@@ -26,6 +19,5 @@ const store = createStore(
   rootReducer,
   composeEnhancers(applyMiddleware(...middleware))
 );
-sagaMiddleware.run(rootSaga);
 
 export { store };

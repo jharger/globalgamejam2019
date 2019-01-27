@@ -63,7 +63,11 @@ module.exports = (env, argv) => {
         },
       ],
     },
-    devServer: {},
+    devServer: {
+      watchOptions: {
+        poll: true,
+      },
+    },
     devtool: PRODUCTION ? 'hidden-source-map' : 'cheap-module-eval-source-map',
     plugins,
   };
