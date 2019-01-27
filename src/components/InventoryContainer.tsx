@@ -16,12 +16,14 @@ interface Props {
 
 const InventoryContainer = ({ inventory }: Props) => (
   <InventoryList>
-    {Object.keys(inventory).map(item => (
-      <InventoryItem key={item}>
-        <InventoryQuantity>{inventory[item]}</InventoryQuantity>
-        <InventoryName>{item}</InventoryName>
-      </InventoryItem>
-    ))}
+    {Object.keys(inventory).map(item =>
+      inventory[item] > 0 ? (
+        <InventoryItem key={item}>
+          <InventoryQuantity>{inventory[item]}</InventoryQuantity>
+          <InventoryName>{item}</InventoryName>
+        </InventoryItem>
+      ) : null
+    )}
   </InventoryList>
 );
 

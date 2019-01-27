@@ -44,7 +44,7 @@ class GameLoop extends React.Component<Props, State> {
       // Week maintenance
       Object.keys(maintenance).forEach(type => {
         if (inventory[type] > 0) {
-          maintenance[type](inventory, dispatch);
+          maintenance[type](inventory, dispatch, inventory[type]);
         }
       });
     });
