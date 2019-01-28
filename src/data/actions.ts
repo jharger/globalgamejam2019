@@ -210,6 +210,7 @@ const actions: PlayerAction[] = [
       dispatch(addInventory({ name: Items.SPOUSE, amount: 1 }));
       dispatch(removeInventory({ name: Items.LOVER, amount: 1 }));
       dispatch(addInventory({ name: Items.LOVE, amount: 10 }));
+      dispatch(addToLog('You get married'));
     },
     inventory =>
       getAmount(inventory, Items.LOVER) >= 1 &&
@@ -227,6 +228,7 @@ const actions: PlayerAction[] = [
       dispatch(addInventory({ name: Items.SPOUSE, amount: 1 }));
       dispatch(removeInventory({ name: Items.LOVER, amount: 1 }));
       dispatch(addInventory({ name: Items.LOVE, amount: 50 }));
+      dispatch(addToLog('You get married and the ceremony was amazing'));
     },
     inventory =>
       getAmount(inventory, Items.LOVER) >= 1 &&
@@ -241,6 +243,33 @@ const actions: PlayerAction[] = [
       dispatch(addInventory({ name: Items.LOVE, amount: 5 }));
     },
     inventory => getAmount(inventory, Items.SPOUSE) >= 1
+  ),
+  new PlayerAction(
+    'have a kid (magically)',
+    5,
+    [],
+    (gameState, dispatch) => {
+      dispatch(addScore({ scoreType: ScoreType.FAMILY, amount: 5 }));
+      dispatch(addInventory({ name: Items.LOVE, amount: 5 }));
+      dispatch(addInventory({ name: Items.KID, amount: 1 }));
+      dispatch(addInventory({ name: Items.FAMILY, amount: 10 }));
+      dispatch(
+        addToLog(
+          "You have a kid. It has a name, but you can't ever remember it."
+        )
+      );
+    },
+    inventory => getAmount(inventory, Items.SPOUSE) >= 1
+  ),
+  new PlayerAction(
+    'spend time with family',
+    5,
+    [],
+    (gameState, dispatch) => {
+      dispatch(addScore({ scoreType: ScoreType.FAMILY, amount: 2 }));
+      dispatch(addInventory({ name: Items.FAMILY, amount: 10 }));
+    },
+    inventory => getAmount(inventory, Items.KID) >= 1
   ),
 ];
 

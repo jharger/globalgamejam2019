@@ -121,6 +121,7 @@ const maintenance: { [type: string]: MaintCallback } = {
     return true;
   },
   [Items.SPOUSE]: (inventory, dispatch) => {
+    const kidCount = getAmount(inventory, Items.KID);
     if (
       !consume(inventory, dispatch, {
         [Items.LOVE]: 1,
@@ -141,6 +142,7 @@ const maintenance: { [type: string]: MaintCallback } = {
       return false;
     }
     if (
+      kidCount > 0 &&
       !consume(inventory, dispatch, {
         [Items.FAMILY]: 1,
       })
